@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campaign Loot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9f4; /* Light green background */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .logo-container {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 2px solid #007bff;
+      transition: border-bottom 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-bottom: 2px solid #0056b3;
+    }
+
+    input[type="submit"] {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .youtube-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .youtube-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .youtube-link a:hover {
+      text-decoration: underline;
+    }
+
+    .fa-check-circle {
+      color: #28a745;
+    }
+</style>
+</head>
+<body>
+
+<div  class="container">
+  <div class="logo-container
+  ">
+    <img src="https://drive.google.com/uc?id=1-2U6WupWdNdaejuj-sMAd5nb9rOGLkyL" alt="Channel Logo">
+    </div>
+    <span class="close">&times;</span>
+    <h3 class="center">Campaign Name : Paytm</h2>
+    <form id="userForm">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+      <label for="upi">UPI ID:</label><br>
+      <input type="text" id="upi" name="upi" placeholder="Enter your UPI ID"><br><br>
+      <input type="submit"></button>
+   
+    </form>
+    <div id="processingMessage" style="display:none;">Processing...</div>
+    <h4>Must Read For Cashback</h4>
+    
+    Install And Open 30 Seconds 
+  </div>
+</div>
+
+<script>
+document.getElementById("userForm").addEventListener("submit", function(event){
+  event.preventDefault(); // prevent form submission
+  
+  var name = document.getElementById("name").value;
+  var upi = document.getElementById("upi").value;
+  
+  // Show processing message
+  document.getElementById("processingMessage").style.display = "block";
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "submit.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Replace "YOUR_TRACKING_LINK_HERE" with your actual tracking link
+        window.location.href = "https://example.com/track?name=" + encodeURIComponent(name) + "&upi=" + encodeURIComponent(upi);
+      }
+    }
+  };
+  xhr.send("name=" + encodeURIComponent(name) + "&upi=" + encodeURIComponent(upi));
+});
+</script>
+
+</body>
+</html>
