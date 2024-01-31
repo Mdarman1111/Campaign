@@ -119,7 +119,7 @@
     <div id="processingMessage" style="display:none;">Processing...</div>
     <h4>Must Read For Cashback</h4>
     
-    Install And Open 30 Seconds 
+    Install And Register 
   </div>
 </div>
 
@@ -140,7 +140,7 @@ document.getElementById("userForm").addEventListener("submit", function(event){
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         // Replace "YOUR_TRACKING_LINK_HERE" with your actual tracking link
-        window.location.href = "https://example.com/track?name=" + encodeURIComponent(name) + "&upi=" + encodeURIComponent(upi);
+        window.location.href = "https://trk.paisakaro.in/c?o=30&a=106=" + encodeURIComponent(name) + "&upi=" + encodeURIComponent(upi);
       }
     }
   };
